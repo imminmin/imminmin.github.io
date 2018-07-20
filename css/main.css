@@ -498,8 +498,8 @@ code {
 code {
   padding: 2px 4px;
   word-wrap: break-word;
-  color: #555;
-  background: #eee;
+  color: #f06292;
+  background: #fce4ec;
   border-radius: 3px;
   font-size: 13px;
 }
@@ -1684,19 +1684,19 @@ pre .javascript .function {
   margin: 0.8em 2em 0 2em;
 }
 #wechat:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
+  animation: roll 0.1s linear;
+  -webkit-animation: roll 0.1s linear;
+  -moz-animation: roll 0.1s linear;
 }
 #alipay:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
+  animation: roll 0.3s linear;
+  -webkit-animation: roll 0.3s linear;
+  -moz-animation: roll 0.3s linear;
 }
 #bitcoin:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
+  animation: roll 0.3s infinite linear;
+  -webkit-animation: roll 0.3s infinite linear;
+  -moz-animation: roll 0.3s infinite linear;
 }
 @-moz-keyframes roll {
   from {
@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a729ff;
+  background: #05b90e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3079,5 +3079,14 @@ hr {
 }
 .site-state-item {
   border-left: 1px solid #fff;
+  color: #fff;
+}
+#rewardButton span {
+  background: #fff;
+  border: 1px solid #ff80ab;
+  color: #ff80ab;
+}
+#rewardButton span:hover {
+  background: #ff80ab;
   color: #fff;
 }
