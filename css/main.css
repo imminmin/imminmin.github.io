@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #05b90e;
+  background: #4545ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3089,4 +3089,24 @@ hr {
 #rewardButton span:hover {
   background: #ff80ab;
   color: #fff;
+}
+.post-button {
+  text-align: center;
+}
+.post-button a {
+  color: #f8bbd0;
+  border-bottom: 2px dashed #f8bbd0;
+}
+.post-button a:hover {
+  color: #ff80ab;
+  border-color: #ff80ab;
+}
+.copyright {
+  text-align: center;
+}
+.posts-expand .post-title {
+  color: #ff80ab;
+}
+.post .post-title {
+  color: #f06292;
 }
