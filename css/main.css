@@ -1064,7 +1064,7 @@ pre .javascript .function {
   z-index: 1050;
   padding: 0 6px;
   width: 24px;
-  background: #222;
+  background: #ff80ab;
   font-size: 12px;
   opacity: 1;
   color: #fff;
@@ -1208,6 +1208,7 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  color: #ff80ab;
 }
 .menu .menu-item a:hover {
   border-bottom-color: #222;
@@ -1358,7 +1359,7 @@ pre .javascript .function {
   margin-left: -2px;
   width: 4px;
   height: 100%;
-  background: #f5f5f5;
+  background: #f8bbd0;
   z-index: -1;
 }
 @media (max-width: 767px) {
@@ -1387,7 +1388,7 @@ pre .javascript .function {
   margin-top: -4px;
   width: 8px;
   height: 8px;
-  background: #bbb;
+  background: #f06292;
   border-radius: 50%;
 }
 .posts-collapse .post {
@@ -1399,7 +1400,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: border;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed #fce4ec;
 }
 .posts-collapse .post-header::before {
   content: " ";
@@ -1409,7 +1410,7 @@ pre .javascript .function {
   width: 6px;
   height: 6px;
   margin-left: -4px;
-  background: #bbb;
+  background: #f06292;
   border-radius: 50%;
   border: 1px solid #fff;
   transition-duration: 0.2s;
@@ -1418,10 +1419,10 @@ pre .javascript .function {
   transition-property: background;
 }
 .posts-collapse .post-header:hover {
-  border-bottom-color: #666;
+  border-bottom-color: #ff80ab;
 }
 .posts-collapse .post-header:hover::before {
-  background: #222;
+  background: $pink-deep;
 }
 .posts-collapse .post-meta {
   position: absolute;
@@ -1665,16 +1666,16 @@ pre .javascript .function {
   bottom: 0;
   width: 0;
   z-index: 1040;
-  box-shadow: inset 0 2px 6px #000;
-  background: #222;
+  box-shadow: inset 0 2px 6px #f8bbd0;
+  background: #f8bbd0;
   -webkit-transform: translateZ(0);
 }
 .sidebar a {
-  color: #999;
-  border-bottom-color: #555;
+  color: #fff;
+  border-bottom-color: #fff;
 }
 .sidebar a:hover {
-  color: #eee;
+  color: #f06292;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sidebar {
@@ -1706,7 +1707,7 @@ pre .javascript .function {
   width: 14px;
   height: 14px;
   padding: 5px;
-  background: #222;
+  background: #ff80ab;
   line-height: 0;
   z-index: 1050;
   cursor: pointer;
@@ -1740,19 +1741,19 @@ pre .javascript .function {
   padding: 2px;
   max-width: 96px;
   height: auto;
-  border: 2px solid #333;
+  border: 2px solid #fce4ec;
 }
 .site-author-name {
   margin: 5px 0 0;
   text-align: center;
-  color: #f5f5f5;
+  color: #fff;
   font-weight: normal;
 }
 .site-description {
   margin-top: 5px;
   text-align: center;
   font-size: 14px;
-  color: #999;
+  color: #fff;
 }
 .site-state {
   overflow: hidden;
@@ -1822,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9d2ed4;
+  background: #c2eeff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2379,8 +2380,8 @@ pre .javascript .function {
   margin-left: -6px;
   width: 10px;
   height: 10px;
-  opacity: 0.5;
-  background: #555;
+  opacity: 0.9;
+  background: #f06292;
   border: 1px solid #fff;
   border-radius: 50%;
 }
@@ -2580,7 +2581,7 @@ pre .javascript .function {
   }
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #87daff;
+  background: #fff;
 }
 .page-post-detail .comments {
   overflow: hidden;
@@ -2607,7 +2608,7 @@ hr {
   margin-top: 80px;
 }
 .header {
-  background: #f5f5f5;
+  background: #fce4ec;
 }
 .header-inner {
   padding: 25px 0 20px;
@@ -2652,6 +2653,7 @@ hr {
 .site-meta .site-title {
   font-size: 22px;
   font-weight: bolder;
+  color: #ff80ab;
 }
 @media (max-width: 767px) {
   .site-meta .site-title {
@@ -2676,7 +2678,7 @@ hr {
   position: relative;
   display: block;
   height: 2px;
-  background: #222;
+  background: #ff80ab;
 }
 @media (max-width: 767px) {
   .logo-line-before i,
@@ -2731,7 +2733,8 @@ hr {
   }
 }
 .menu .menu-item a:hover {
-  background: #e1e1e1;
+  background: #ff80ab;
+  color: #fff;
 }
 .menu a::before {
   display: none;
@@ -2891,8 +2894,11 @@ hr {
 .footer {
   margin-top: 80px;
   padding: 10px 0;
-  background: #f5f5f5;
-  color: #666;
+  background: #fce4ec;
+  color: #ff80ab;
+}
+.footer a {
+  color: #ff80ab;
 }
 .footer-inner {
   margin: 0 auto;
