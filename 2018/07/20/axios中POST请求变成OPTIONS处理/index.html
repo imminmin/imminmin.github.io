@@ -79,17 +79,24 @@
 
 
 
-<meta name="description" content="When I&apos;m no longer young and beautiful. Will you still love me">
+<meta name="description" content="今天在调接口的时候，发现在axios Post的方式提交formData格式的数据的时候出现了请求变成opition的情况，导致无法请求成功。这把我给郁闷的啊，因为我用jQuery的$.ajax可以请求成功，没有任何问题，数据成功返回。于是我就去网上搜了一番，最后终于解决了！下面我来分析一下： 错误情况 控制台请求方式变成了OPITIONS可是我明明写的是POST啊 这是为啥呢？具体原因可以参考浅">
 <meta name="keywords" content="Hexo,HTML,CSS,JavaScript,jQuery,Vue,微信小程序,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="minmmin&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="axios中POST请求变成OPTIONS处理">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/axios中POST请求变成OPTIONS处理/index.html">
 <meta property="og:site_name" content="minmmin&#39;s blog">
-<meta property="og:description" content="When I&apos;m no longer young and beautiful. Will you still love me">
+<meta property="og:description" content="今天在调接口的时候，发现在axios Post的方式提交formData格式的数据的时候出现了请求变成opition的情况，导致无法请求成功。这把我给郁闷的啊，因为我用jQuery的$.ajax可以请求成功，没有任何问题，数据成功返回。于是我就去网上搜了一番，最后终于解决了！下面我来分析一下： 错误情况 控制台请求方式变成了OPITIONS可是我明明写的是POST啊 这是为啥呢？具体原因可以参考浅">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/7/19/164b1d23dcdffe4a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/7/19/164b1d444f528432?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/7/19/164b1ebeff0707a5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/7/19/164b1f45168193e2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/7/19/164b1f9e9a789f50?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2018-07-20T02:40:25.927Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="minmmin&#39;s blog">
-<meta name="twitter:description" content="When I&apos;m no longer young and beautiful. Will you still love me">
+<meta name="twitter:title" content="axios中POST请求变成OPTIONS处理">
+<meta name="twitter:description" content="今天在调接口的时候，发现在axios Post的方式提交formData格式的数据的时候出现了请求变成opition的情况，导致无法请求成功。这把我给郁闷的啊，因为我用jQuery的$.ajax可以请求成功，没有任何问题，数据成功返回。于是我就去网上搜了一番，最后终于解决了！下面我来分析一下： 错误情况 控制台请求方式变成了OPITIONS可是我明明写的是POST啊 这是为啥呢？具体原因可以参考浅">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/7/19/164b1d23dcdffe4a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
 
 
 
@@ -119,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/20/axios中POST请求变成OPTIONS处理/"/>
 
 
 
 
 
-  <title>minmmin's blog</title>
+  <title>axios中POST请求变成OPTIONS处理 | minmmin's blog</title>
   
 
 
@@ -144,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/imminmin" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#f89cbc; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a ><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,9 +254,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -280,9 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/20/axios中POST请求变成OPTIONS处理/" itemprop="url">axios中POST请求变成OPTIONS处理</a></h1>
+          <h1 class="post-title" itemprop="name headline">axios中POST请求变成OPTIONS处理</h1>
         
 
         <div class="post-meta">
@@ -332,9 +336,7 @@
       
 
       
-        
-          
-            <p>今天在调接口的时候，发现在axios Post的方式提交formData格式的数据的时候出现了请求变成opition的情况，导致无法请求成功。这把我给郁闷的啊，因为我用jQuery的$.ajax可以请求成功，没有任何问题，数据成功返回。于是我就去网上搜了一番，最后终于解决了！下面我来分析一下：</p>
+        <p>今天在调接口的时候，发现在axios Post的方式提交formData格式的数据的时候出现了请求变成opition的情况，导致无法请求成功。这把我给郁闷的啊，因为我用jQuery的$.ajax可以请求成功，没有任何问题，数据成功返回。于是我就去网上搜了一番，最后终于解决了！下面我来分析一下：</p>
 <h1 id="错误情况"><a href="#错误情况" class="headerlink" title="错误情况"></a>错误情况</h1><hr>
 <p>控制台请求方式变成了OPITIONS<br><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1d23dcdffe4a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="截图"><br>可是我明明写的是POST啊</p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1d444f528432?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="截图"><br>这是为啥呢？具体原因可以参考浅谈 AJAX 跨域请求时的 OPTIONS 方法 ，我觉得说的很详细，下面，我来说下我的解决方法吧😄</p>
@@ -358,8 +360,6 @@
 <p><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1f9e9a789f50?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
 <p>最后再请求接口试试，乱码不见啦，搞定！<br>我个人建议使用qs的这个方法哈，因为使用起来比较方便， 每次append太麻烦啦～</p>
 
-          
-        
       
     </div>
     
@@ -376,132 +376,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wuhuimin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/favicon.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="minmmin's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/hello-world/" itemprop="url">欢迎来到小仙女的博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T15:07:27+08:00">
-                2018-07-17
-              </time>
+              <a href="/2018/07/17/hello-world/" rel="next" title="欢迎来到小仙女的博客">
+                <i class="fa fa-chevron-left"></i> 欢迎来到小仙女的博客
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>博客还在开发中。。。嘻嘻</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -511,10 +407,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -522,6 +419,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -542,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -589,6 +499,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#错误情况"><span class="nav-number">1.</span> <span class="nav-text">错误情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇见的问题"><span class="nav-number">3.</span> <span class="nav-text">遇见的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -729,6 +655,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
