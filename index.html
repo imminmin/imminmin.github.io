@@ -99,7 +99,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -216,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            分类
           </a>
         </li>
       
@@ -226,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -268,7 +268,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuhuimin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/favicon.png">
+      <meta itemprop="image" content="/images/head_pic.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -292,9 +292,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T10:04:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T10:04:48+08:00">
                 2018-07-20
               </time>
             
@@ -304,6 +304,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -333,32 +355,14 @@
 
       
         
-          
-            <p>今天在调接口的时候，发现在axios Post的方式提交formData格式的数据的时候出现了请求变成opition的情况，导致无法请求成功。这把我给郁闷的啊，因为我用jQuery的$.ajax可以请求成功，没有任何问题，数据成功返回。于是我就去网上搜了一番，最后终于解决了！下面我来分析一下：</p>
-<h1 id="错误情况"><a href="#错误情况" class="headerlink" title="错误情况"></a>错误情况</h1><hr>
-<p>控制台请求方式变成了OPITIONS<br><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1d23dcdffe4a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="截图"><br>可是我明明写的是POST啊</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1d444f528432?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="截图"><br>这是为啥呢？具体原因可以参考浅谈 AJAX 跨域请求时的 OPTIONS 方法 ，我觉得说的很详细，下面，我来说下我的解决方法吧😄</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><hr>
-<p>1.使用 URLSearchParams （会有兼容问题，写起来比较麻烦）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="keyword">new</span> URLSearchParams();</span><br><span class="line">data.append(<span class="string">'id'</span>, <span class="string">'1'</span>);</span><br><span class="line">data.append(<span class="string">'name'</span>, <span class="string">'minmin'</span>);</span><br><span class="line">data.append(<span class="string">'age'</span>, <span class="string">'23'</span>)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">postData(data).then(    <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>这里的<code>postData</code>是我直接写好的方法，如果是没有封装过的axios 就直接按原始的写法传参就好啦<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">axios.post(<span class="string">'url, data).then(</span></span><br><span class="line"><span class="string">    res =&gt; &#123;</span></span><br><span class="line"><span class="string">        ...</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">)</span></span><br></pre></td></tr></table></figure></p>
-<p>2.使用qs.stringify</p>
-<blockquote>
-<p>1.安装</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install --save axios vue-axios qs</span><br><span class="line"></span><br><span class="line">安装不上的用淘宝镜像，然后</span><br><span class="line"></span><br><span class="line">cnpm install --save axios vue-axios qs</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2.axios配置</p>
-</blockquote>
-<p>我把axios配置写在src/utils/request.js里面，在我当前这个request.js里引入qs并配置<br><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1ebeff0707a5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="截图"><br>在上面这两个地方按我的写法引入qs，并且在<code>axios.interceptors.request.use</code>请求前判断如果是post请求就将data <code>qs.stringify</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(config.method  === <span class="string">'post'</span>)&#123;</span><br><span class="line">    config.data = qs.stringify(config.data);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;,(error) =&gt;&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这样就ok拉，就不用担心请求方式那里是opitions了,打开控制台看一下，太棒了，奖励一朵小发发<br><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1f45168193e2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="截图"></p>
-<p>如果没有封装axios配置，可以引入后，直接<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">axios.post(<span class="string">'url, qs.stringify(data)).then(</span></span><br><span class="line"><span class="string">    res =&gt; &#123;</span></span><br><span class="line"><span class="string">        ...</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">)</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="遇见的问题"><a href="#遇见的问题" class="headerlink" title="遇见的问题"></a>遇见的问题</h1><hr>
-<p>是不是觉得这样就大功告成了，不不不，因为我的请求是需要发送一大堆中文给后台，发送成功后，发现后台返回给我的值是一堆乱码，不对啊！这不对啊！看看自己接口穿的参数明明是中文怎么特么的返回回来就变成乱码了，这。。。我又去找了找问题，发现只只要在axios配置那里加一行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.headers.post[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencoded;charset=UTF-8&apos;;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/7/19/164b1f9e9a789f50?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
-<p>最后再请求接口试试，乱码不见啦，搞定！<br>我个人建议使用qs的这个方法哈，因为使用起来比较方便， 每次append太麻烦啦～</p>
-
-          
+          <p>今天在调接口的时候，发现在axios Post的方式提交formData格式的数据的时候出现了请求变成opition的情况，导致无法请求成功。这把我给郁闷的啊，因为我用jQuery的$.ajax可以请求成功，没有任何问题，数据成功返回。于是我就去网上搜了一番，最后终于解决了！下面我来分析一下：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/20/axios中POST请求变成OPTIONS处理/#more" rel="contents">
+              阅读更多 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -410,7 +414,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wuhuimin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/favicon.png">
+      <meta itemprop="image" content="/images/head_pic.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -434,9 +438,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T15:07:27+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T15:07:27+08:00">
                 2018-07-17
               </time>
             
@@ -548,7 +552,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/favicon.png"
+                src="/images/head_pic.jpg"
                 alt="wuhuimin" />
             
               <p class="site-author-name" itemprop="name">wuhuimin</p>
@@ -569,7 +573,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
@@ -577,11 +599,41 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/imminmmin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5acb49d3f265da23906c51a2" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-globe"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jonathon.cn/" title="高俊杰" target="_blank">高俊杰</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -605,14 +657,14 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">wuhuimin</span>
 
   
 </div>
 
-
+<!--
   <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
@@ -623,7 +675,7 @@
 
   <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
-
+-->
 
 
         
