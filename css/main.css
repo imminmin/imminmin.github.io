@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4545ff;
+  background: #26d761;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3030,10 +3030,21 @@ hr {
     text-align: center;
   }
 }
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1011;
+}
+.container {
+  padding-top: 70px;
+}
 .post {
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 25px;
+  background: #fff;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
@@ -3104,9 +3115,56 @@ hr {
 .copyright {
   text-align: center;
 }
-.posts-expand .post-title {
-  color: #ff80ab;
-}
 .post .post-title {
   color: #f06292;
+}
+.github-right {
+  position: fixed;
+  width: 90px;
+  height: 90px;
+  z-index: 1012;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.fengmian {
+  width: 75%;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .header {
+    height: 58px;
+  }
+  .github-right {
+    width: 58px;
+    height: 58px;
+  }
+  .site-nav-toggle {
+    position: absolute;
+    z-index: 22;
+    right: 58px;
+    text-align: right;
+  }
+  .btn-bar {
+    background: #ff80ab;
+  }
+  .site-nav {
+    padding: 0 33px;
+    background: #fce4ec;
+    border-color: #ff80ab;
+  }
+  .menu .menu-item a {
+    text-align: left;
+  }
+  .footer {
+    position: static;
+  }
+  .fengmian {
+    width: 90%;
+  }
+  .posts-expand .post-body .fancybox img {
+    margin: 0 auto;
+  }
 }
