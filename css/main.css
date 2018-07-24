@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3dff67;
+  background: #cc5d00;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3132,6 +3132,26 @@ hr {
 .fengmian {
   width: 75%;
   margin: 0;
+}
+.use-motion .post-header {
+  color: #f06292;
+}
+.tag-cloud-title,
+.category-all-title {
+  color: #ccc;
+}
+.tag-cloud a,
+.posts-expand .post-body ul li a {
+  border-bottom-color: #fce4ec;
+}
+.tag-cloud a:hover,
+.posts-expand .post-body ul li a:hover {
+  background: #fce4ec;
+  border-bottom-color: #ff80ab;
+}
+.posts-expand .post-body ul li,
+.posts-expand .post-body ul li a {
+  color: #ff80ab;
 }
 @media (max-width: 767px) {
   .header {
