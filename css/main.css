@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cc5d00;
+  background: #3bffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3128,6 +3128,7 @@ hr {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 1011;
 }
 .fengmian {
   width: 75%;
@@ -3152,6 +3153,15 @@ hr {
 .posts-expand .post-body ul li,
 .posts-expand .post-body ul li a {
   color: #ff80ab;
+}
+.posts-collapse::after {
+  left: -2px;
+}
+.posts-collapse .collection-title::before {
+  margin-left: -6px;
+}
+.page-archive .posts-collapse .archive-move-on {
+  margin-left: -8px;
 }
 @media (max-width: 767px) {
   .header {
@@ -3179,7 +3189,12 @@ hr {
     text-align: left;
   }
   .footer {
-    position: static;
+    height: 25px;
+    min-height: 25px;
+  }
+  .category-all,
+  .tag-cloud-tags {
+    background: #fff;
   }
   .fengmian {
     width: 90%;
